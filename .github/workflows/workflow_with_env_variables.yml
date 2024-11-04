@@ -17,6 +17,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    # Load dotenv
+    - name: dotenv-loader
+      # You may pin to the exact commit or the version.
+      # uses: cosq-network/dotenv-loader@11f7e57bd719a70abc5c858a921c09fed1f39967
+      uses: cosq-network/dotenv-loader@v1.0.2
+      with:
+        # Path to the environment file.
+        env-file: .env
+    
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "${{env.GREETING}}, ${{env.RECIEVER}}!"
