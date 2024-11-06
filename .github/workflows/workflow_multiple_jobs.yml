@@ -28,7 +28,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: print greeting
-        run: echo "${{ env.GREETING }}, ${{ env.RECIPIENT }}!"
+        run: echo "${{ env.GREETING }}, ${{ env.NAME }}!"
 
   reveal-secrets:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
     
       - uses: actions/checkout@v4
       - name: print secret
-        run: echo "$ {{ secrets.MOCK_API_KEY }}"
+        run: echo "The secret is ${{ secrets.MOCK_API_KEY }}"
 
       
       
