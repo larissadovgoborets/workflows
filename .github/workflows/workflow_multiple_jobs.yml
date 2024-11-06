@@ -16,22 +16,19 @@ jobs:
   greet:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
+    env:
+      GREETING: "Hello"
+      NAME: "World"
+      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      
-      - name: load-env
-        # You may pin to the exact commit or the version.
-        uses: duskmoon314/action-load-env@v1.1.0
-        with:
-        # dotenv files
-          env: dotenv        
 
       # Runs a single command using the runners shell
       - name: print greeting
-        run: echo "${{ GREETING }}, ${{ RECIPIENT }}!"
+        run: echo "${{ env.GREETING }}, ${{ env.RECIPIENT }}!"
 
   reveal-secrets:
     runs-on: ubuntu-latest
